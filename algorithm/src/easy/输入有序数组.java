@@ -38,7 +38,7 @@ public class 输入有序数组 {
         		res[1]=length+1;
         		return res;
         	}  
-        	target
+        	target+=numbers[i];
         }
         return res;
     }
