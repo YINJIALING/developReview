@@ -26,7 +26,6 @@ public class 逆波兰表达式求值 {
 		Stack<Integer> stack=new Stack<>();
 		
 		for(int i=0;i<tokens.length;i++) {
-//			String index=tokens[i];
 			if(isNumber(tokens[i])) {
 				stack.push(Integer.parseInt(tokens[i]));
 			}else {
