@@ -1,16 +1,30 @@
-/common/
-/deadlineNewYear/
-/deadlineSpringFestival/
-/easy/
-/leetcode/
-/medium/
-/newcodergirl/
-/知识点/
-/程序员面试经典/
-<<<<<<< HEAD
-/foreigncompany/
-=======
-/System/
->>>>>>> d499e0cb99a897d99dc3857cd5e43b6229c86b59
-/bishi/
-/xiaozhaozhenti2018/
+.DS_Store
+*~
+.idea/
+*.iml
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Eclipse
+.metadata/
+.recommenders/
+.classpath
+.project
+.settings
+/target/
+**/target
+
+# Log
+/log/
+*.log
+/bin/
