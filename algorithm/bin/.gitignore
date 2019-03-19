@@ -28,4 +28,12 @@ hs_err_pid*
 /log/
 *.log
 /bin/
+<<<<<<< HEAD
+=======
+/common/
+/bishi/
+/easy/
+/foreigncompany/
+/medium/
+>>>>>>> 5ea5a8c17242d76aff2eaf22098b609a08acfddd
 /xiaozhao2018/
