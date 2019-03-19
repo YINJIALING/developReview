@@ -12,6 +12,11 @@ public class 拼凑硬币 {
 		System.out.println(test1(n));
 	}
 
+	/**
+	 * 这个是错的，只考虑了连续的选
+	 * @param n
+	 * @return
+	 */
 	private static int test1(int n) {
 		List<Integer> num=initCoins(n);
 		int count=0;
