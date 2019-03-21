@@ -1,41 +1,18 @@
-.DS_Store
-*~
-.idea/
-*.iml
-*.class
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-
-# Eclipse
-.metadata/
-.recommenders/
-.classpath
-.project
-.settings
-/target/
-**/target
-
-# Log
-/log/
-*.log
-/bin/
-<<<<<<< HEAD
-=======
-/common/
 /bishi/
+/common/
+/deadlineNewYear/
+/deadlineSpringFestival/
 /easy/
 /foreigncompany/
+/leetcode/
 /medium/
->>>>>>> 5ea5a8c17242d76aff2eaf22098b609a08acfddd
 /xiaozhao2018/
+<<<<<<< HEAD
 /mulitthread/
 /装饰者模式/
+=======
+/知识点/
+/程序员面试经典/
+/io/
+/bio/
+>>>>>>> 4e7f9c55f68a98c24b7a20b3a0c636e5683abeeb
