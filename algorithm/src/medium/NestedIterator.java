@@ -5,23 +5,17 @@ import java.util.Iterator;
 import java.util.List;
 
 public class NestedIterator implements Iterator<Integer>{
-	List<Integer> nestedList=new ArrayList<>();
-	int index=0;
-    public NestedIterator(List<Integer> nestedList) {
-    		this.nestedList=nestedList;
-    }
 
-    @Override
-    public Integer next() {
-    		nestedList.get(index);
-    		index++;
-    }
+	@Override
+	public boolean hasNext() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
-    @Override
-    public boolean hasNext() {
-        if(index<nestedList.size())
-        		return true;
-        else
-        		return false;
-    }
+	@Override
+	public Integer next() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }
