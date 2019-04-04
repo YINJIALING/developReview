@@ -19,8 +19,8 @@ public class LRU缓存机制 {
 	public int get(int key) {
 		if(map.containsKey(key)) {
 			int value=map.get(key);
-			map.remove(key);
-			map.put(key, value);
+			map.remove(key);//先删去
+			map.put(key, value);//再增加进去，确保在第一位
 			return value;
 		}
 			
