@@ -1,20 +1,13 @@
-/bishi/
-/common/
-/deadlineNewYear/
-/deadlineSpringFestival/
-/easy/
-/foreigncompany/
+/io/
 /leetcode/
 /medium/
-/xiaozhao2018/
-<<<<<<< HEAD
 /mulitthread/
-/装饰者模式/
-=======
+/xiaozhao2018/
 /知识点/
 /程序员面试经典/
-/io/
-/bio/
->>>>>>> 4e7f9c55f68a98c24b7a20b3a0c636e5683abeeb
-/lambda/
-/基础/
+/装饰者模式/
+/easy/
+/common/
+/bishi/
+/剑指offer2/
+/正则/

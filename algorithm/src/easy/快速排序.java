@@ -54,7 +54,7 @@ public class 快速排序 {
 	private static void quickSort(int a[], int low, int high) {
 		if (low >= high)
 			return;
-		int index = partiton(a, low, high);
+		int index = partiton(a, low, high);//确定一个元素的位置
 		quickSort(a, low, index - 1);
 		quickSort(a, index + 1, high);
 	}

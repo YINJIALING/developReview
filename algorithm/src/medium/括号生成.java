@@ -6,8 +6,10 @@ import java.util.List;
 public class 括号生成 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		generateParenthesis(3);
+//		generateParenthesis(3);
+		List<String> res=generateParenthesis2(3);
+		for(String item:res)
+			System.out.print(item+",");
 	}
 
 	public static List<String> generateParenthesis(int n) {
@@ -72,5 +74,38 @@ public class 括号生成 {
 			generate(resultList, subString + ")", leftNum, rightNum + 1, totalNum);
 		}
 	}
+	
+	/**
+	 * 合理的条件
+	 * 1. 左括号的个数=右括号的个数=n
+	 * 2.右括号的放置顺序不能先于左括号
+	 * @param n
+	 * @return
+	 */
+	public static List<String> generateParenthesis2(int n) {
+		List<String> res=new ArrayList<>();
+		generateParenthesis2Core("",n,n,res,n);
+		return res;
+	}
+
+	/**
+	 * 
+	 * @param item 当前生成的字符串
+	 * @param left 当前生成的字符串可以生成的（个数
+	 * @param right 当前生成的字符串可以生成的)个数
+	 * @param res 结果集
+	 * @param n
+	 */
+	private static void generateParenthesis2Core(String item, int left, int right, List<String> res,int n) {
+		if(item.length()==2*n&&left==0&&right==0) {//剪枝
+			res.add(item);
+			return ;
+		}
+		if(left>0)
+			generateParenthesis2Core(item+"(",left-1,right,res,n);
+		if(left<right)
+			generateParenthesis2Core(item+")",left,right-1,res,n);
+	}
+	
 
 }
