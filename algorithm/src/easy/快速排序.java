@@ -1,5 +1,8 @@
 package easy;
-
+/*
+ * https://www.cnblogs.com/coderising/p/5708801.html
+ * https://blog.csdn.net/shujuelin/article/details/82423852交换
+ */
 public class 快速排序 {
 
 	public static void main(String[] args) {
@@ -23,26 +26,35 @@ public class 快速排序 {
 	 * @return
 	 */
 	private static int partiton(int a[], int low, int high) {
+		System.out.println("--------");
+		System.out.print("start");
+		print(a);
+		int initLow=low;
 		int key = a[low];
 		while (low < high) {
-			if (a[high] < key) {
-				a[low] = a[high];
-			}
 			while (a[high] >= key && low < high) {
 				high--;
-			}
-			
-			if (a[low] > key) {
-				a[high] = a[low];
 			}
 			while (a[low] <= key && low < high) {
 				low++;
 			}
+			if(low < high) {
+				swap(a,low,high);
+				low++;high--;
+			}
+			
 			
 		}
-		a[high] = key;
+		//将基准的数字与low和high相遇时的数字交换
+		swap(a,high,initLow);
 		print(a);
 		return high;	
+	}
+
+	private static void swap(int[] a, int i, int j) {
+		int tmp=a[i];
+		a[i]=a[j];
+		a[j]=tmp;
 	}
 
 	/**

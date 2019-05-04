@@ -1,5 +1,14 @@
 package 剑指offer2;
-
+/**
+ *  dp[0]=0
+ *  dp[1]=1
+ *  dp[2]=2
+ *  f(n)=f(n-1)+f(n-2)+......+f(1)
+ *  f(n-1)=f(n-2)+.....+f(1)
+ *  ->f(n)=2f(n-1)
+ * @author yinjialing
+ *
+ */
 public class 变态跳台阶 {
 
 	public static void main(String[] args) {

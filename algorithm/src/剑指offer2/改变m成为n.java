@@ -14,7 +14,7 @@ public class 改变m成为n {
 	 * @return
 	 */
 	private static int changemTon(int m,int n) {
-		int tmp=m^n;
+		int tmp=m^n;//求异或
 		int count=0;
 		int flag=1;
 		while(flag!=0) {

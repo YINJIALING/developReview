@@ -2,6 +2,13 @@ package 剑指offer2;
 
 public class 跳台阶 extends 二维数组中的查找 {
 
+	/**
+	 * dp[0]=0
+	 * dp[1]=1
+	 * dp[2]=2
+	 * dp[i]=dp[i-1]+dp[i-2]
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		System.out.println(JumpFloor(2));
