@@ -45,7 +45,17 @@ public class 数据流中的中位数 {
 		System.out.println(t.GetMedian());
 	}
 
+	/*
+	 * 先判断是否是偶数
+	 * 若是偶数，增加到min
+	 * 否则，增加到max中
+	 * 
+	 * 如果增加到min中，需要保证max的所有数据都比min中的小
+	 * 先将num增加到max中，取出max最顶元素放入min中
+	 * 
+	 */
 	public void Insert(Integer num) {
+		//判断是否是偶数
 		if(((min.size()+max.size())&1)==0) {
 			if(max.size()>0&&max.peek()>num) {
 				max.add(num);

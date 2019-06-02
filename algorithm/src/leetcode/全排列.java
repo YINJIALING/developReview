@@ -28,11 +28,21 @@ public class 全排列 {
 		return res;
 	}
 
+	/**
+	 *  1.如果 已经到了数组的最后一个元素，前面的元素已经排好输出
+	 *  2.将第一个元素分别与后面的元素交换，递归的调用其子数组进行排序
+	 * @param res
+	 * @param start
+	 * @param len
+	 * @param nums
+	 */
 	private static void core(List<List<Integer>> res, int start, int len, int[] nums) {
-//		if(start==len-1)
+			
+		if(start>=len) {
 			System.out.println(Arrays.toString(nums));
-		if(start>=len)
 			return ;
+		}
+			
 		for(int i=start;i<len;i++) {
 			swap(i,start,nums);
 			core(res,start+1,len,nums);
