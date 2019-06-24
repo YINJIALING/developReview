@@ -63,7 +63,7 @@ public class 平衡二叉树 {
 		}
 		int left=0,right=0;
 		if(IsBalanced_Solution(root.left,left)&&
-				IsBalanced_Solution(root.left,left)) {
+				IsBalanced_Solution(root.right,right)) {
 			int diff=left-right;
 			if(!(diff>1||diff<-1)) {
 				depth=1+Math.max(left, right);

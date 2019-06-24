@@ -22,7 +22,7 @@ public class 滑动窗口的最大值 {
     {
 		ArrayList<Integer> maxInWindows=new ArrayList<>();
 		if(num.length>=size&&size>0) {
-			//两端开口的队列，保存可能是滑动窗口最大值的下标
+			//两端开口的队列，保存的是滑动窗口最大值的下标
 			Deque<Integer> index=new LinkedList<>();
 			for(int i=0;i<size;i++) {
 				while(!index.isEmpty()&&num[i]>=num[index.getLast()]) {

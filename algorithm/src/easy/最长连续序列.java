@@ -15,33 +15,15 @@ public class 最长连续序列 {
 public static int longestConsecutive(int[] nums) {
 	int max=0;
 	Set<Integer> set=new HashSet<>();
-	for(int i:nums) set.add(i);
+	for(int i:nums) set.add(i);//先把所有的数都增加到set中
 	for(int i:nums) {
-		if(!set.contains(i-1)) {
+		if(!set.contains(i-1)) {//如果set不包含i-1的元素
 			int val=i;
-			while(set.remove(val++));
+			while(set.remove(val++));//直到成功
 			max=Math.max(max, val-i-1);
 		}
 	}
 	return max;
 }
-//	Map<Integer,Integer> map=new HashMap<>();
-//    int max=0;
-//    for(int i=0;i<nums.length;i++) {
-//   	 if(!map.containsKey(nums[i])) {
-//   		 int left=map.getOrDefault(nums[i]-1,0);
-//   		 int right=map.getOrDefault(nums[i]+1,0);
-//   		 map.put(nums[i], left+right+1);
-//            if(left!=0)
-//                 map.put(nums[i]-left, left+right+1);
-//
-//            if(right!=0)
-//                map.put(nums[i]+right, left+right+1);
-//   		 max=max<map.getOrDefault(nums[i],0)?map.getOrDefault(nums[i],0):max;
-//   	 } 
-//    }
-//    //return max;
-//     return max;
-//    }
 
 }

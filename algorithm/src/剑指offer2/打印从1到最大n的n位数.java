@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class 打印从1到最大n的n位数 {
 
 	public static void main(String[] args) {
-		print(3);
+		print2(3);
 
 	}
 	/**
@@ -16,7 +16,7 @@ public class 打印从1到最大n的n位数 {
 		if(n<=0)return ;
 		char[] number=new char[n+1];
 		Arrays.fill(number, '0');
-		number[n]='0';
+		number[n]='1';
 		for(int i=0;i<10;++i) {
 			number[0]=(char) (i+'0');
 			print1ToMax(number,n,0);
@@ -24,7 +24,7 @@ public class 打印从1到最大n的n位数 {
 	}
 	private static void print1ToMax(char[] number, int length, int index) {
 		if(index==length-1) {
-			printNumber(number,n+1);
+			printNumber(number,length+1);
 		}
 		
 	}

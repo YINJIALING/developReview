@@ -19,6 +19,12 @@ public class 把数字翻译成字符串 {
 		return GetTranslationCount(numberInString);
 	}
 
+	/**
+	 * 从后开始，从后到前计算不同的数目
+	 * 用一个数组count来存
+	 * @param number
+	 * @return
+	 */
 	private static int GetTranslationCount(String number) {
 		int length=number.length();
 		int[] counts=new int[length];

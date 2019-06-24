@@ -1,77 +1,60 @@
 package easy;
 
+import java.util.Arrays;
+
 public class 堆排序 {
-	private static void print(int[] array) {
-		for(int i:array) {
-			System.out.print(i+",");
-		}
+	 public static void main(String []args){
+	        int []arr = {5,4,3,2,1,9,8,7,6,14};
+	        sort(arr);
+	        System.out.println(Arrays.toString(arr));
+	    }
+	    public static void sort(int []arr){
+	        //1.构建大顶堆
+	        for(int i=arr.length/2-1;i>=0;i--){
+	            //从第一个非叶子结点从下至上，从右至左调整结构
+	            adjustHeap(arr,i,arr.length);
+	        }
+	        //2.调整堆结构+交换堆顶元素与末尾元素
+	        for(int j=arr.length-1;j>0;j--){
+	            swap(arr,0,j);//将堆顶元素与末尾元素进行交换,将最大元素沉到数组的末尾
+	            adjustHeap(arr,0,j);//重新对堆进行调整
+	        }
 
-		System.out.println();
-	}
+	    }
 
-	public static void main(String[] args) {
-		int[] array= {4,6,8,5,9};
-		heapSort(array);
-		System.out.print("res:");
-		print(array);
+	    /**
+	     * 调整大顶堆（仅是调整过程，建立在大顶堆已构建的基础上）
+	     * @param arr
+	     * @param i
+	     * @param length
+	     */
+	    public static void adjustHeap(int []arr,int i,int length){
+	        int temp = arr[i];//先取出当前元素i
+	        for(int k=i*2+1;k<length;k=k*2+1){//从i结点的左子结点开始，也就是2i+1处开始
+	        	//子节点arr[k],父节点temp
+	            if(k+1<length && arr[k]<arr[k+1]){//如果左子结点小于右子结点，k指向右子结点
+	                k++;
+	            }
+	            if(arr[k] >temp){//如果子节点大于父节点，将子节点值赋给父节点（不用进行交换）
+	                arr[i] = arr[k];
+	                i = k;
+	            }else{//如果子节点小于父节点，不用调整
+	                break;
+	            }
+	        }
+	        arr[i] = temp;//将temp值放到最终的位置
+	    }
 
-	}
-
-	/**
-	 * 1.构建大根堆
-	 * 2.将其与当前0位元素交换，也就是达得到最大值，下次只要令0到最大值前面一个元素自平衡就可以，依次递减，直到只剩下一个元素（就是最小值）
-	 * @param array
-	 */
-	private static void heapSort(int[] array) {
-		if(array==null||array.length==0)return;
-		buildMaxHeap(array);
-		print(array);
-		//选择顶，并与第0位元素交换，并且根据堆的性质调整堆，并注意此时堆顶不是最大值
-		for(int i=array.length-1;i>=1;i--) {
-			swap(array,i,0);
-			maxHeap(array,i,0);
-		}
-		
-	}
-
-	//构建从一半开始大根堆，满足a[i]>=a[2i+1]&&a[i]>=a[2i+2]
-	private static void buildMaxHeap(int[] array) {
-		int half=array.length/2;
-		for(int i=half;i>=0;i--) {
-			maxHeap(array,array.length,i);
-		}
-		
-	}
-
-	//调整位置使在范围内堆自平衡
-	/**
-	 * 在left,right，root中寻找最大值，若root是，那么堆不变
-	 * 若不是，将当前位置与最大值位置交换（让最大值做root），并调整位置，使之后的元素自平衡
-	 * @param array
-	 * @param heapSize
-	 * @param index
-	 */
-	private static void maxHeap(int[] array, int heapSize, int index) {
-		int left=index*2+1;//左结点坐标
-		int right=index*2+2;//右结点坐标
-		int largest=index;
-		if(left<heapSize&&array[left]>array[index]) {
-			largest=left;
-		}
-		if(right<heapSize&&array[right]>array[largest]) {
-			largest=right;
-		}
-		if(index!=largest) {
-			swap(array,index,largest);
-			maxHeap(array,heapSize,largest);
-		}
-	}
-
-	private static void swap(int[] array, int index, int largest) {
-		int tmp=array[index];
-		array[index]=array[largest];
-		array[largest]=tmp;
-		
-	}
+	    /**
+	     * 交换元素
+	     * @param arr
+	     * @param a
+	     * @param b
+	     */
+	    public static void swap(int []arr,int a ,int b){
+	        int temp=arr[a];
+	        arr[a] = arr[b];
+	        arr[b] = temp;
+	    }
 
 }

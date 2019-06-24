@@ -18,7 +18,7 @@ public class 圆圈中最后剩下的数 {
 		int current=0 ;
 		while(list.size()!=1) {
 			current+=m-1;
-			while(current>(list.size()-1))
+			while(current>=0&&current>(list.size()-1))
 				current-=list.size();
 			list.remove(current);
 		}

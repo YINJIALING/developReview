@@ -69,14 +69,16 @@ public class 二叉树的层次遍历 {
 	 
 
 	// 先序遍历--递归
-	private void preOrderTraverse(TreeNode node) {
-		if (node == null)
-			return;
-		System.out.print(node.val + " ");
-	
+	private static void preOrderTraverse(TreeNode node) {
+		if (node != null) {
+			System.out.print(node.val + " ");
+			
 			preOrderTraverse(node.left);
 	
 			preOrderTraverse(node.right);
+		}
+			
+		
 	}
 
 	// 先序遍历--非递归
@@ -99,13 +101,12 @@ public class 二叉树的层次遍历 {
 	}
 	// 中序遍历--递归
 	private void inOrderTraverse(TreeNode node) {
-		if (node == null)
-			return;
-		if (node.left != null)
+		if(node!=null) {
 			preOrderTraverse(node.left);
-		System.out.print(node.val + " ");
-		if (node.right != null)
+			System.out.print(node.val + " ");
 			preOrderTraverse(node.right);
+		}
+	
 	}
 	
 	// 中序遍历--非递归
@@ -133,44 +134,54 @@ public class 二叉树的层次遍历 {
 	}
 
 	// 后序遍历--递归
-	private void postOrderTraverse(TreeNode node) {
-		if (node == null)
-			return;
-			preOrderTraverse(node.left);
+	private static void postOrderTraverse(TreeNode root) {
+		if (root != null) {
+			postOrderTraverse(root.left);
+			postOrderTraverse(root.right);
+		    System.out.print(root.val+" ");
+		  }
+
 		
-			preOrderTraverse(node.right);
-		System.out.print(node.val + " ");
 	}
 	
 	// 后序遍历--非递归
 	/**
-	 * 1.将所有根结点的所有左结点入栈，将栈顶出栈
-	 * 2.将该结点的右孩子入栈，扫描右孩子的所有左结点入栈。当一个结点的左右孩子都被访问后再访问该结点
-	 * 要点：
-	 * 用一个初始值为null的结点表示右子树已经被访问过
+	 *  一个栈实现
+	 *  h:最近一次弹出并打印的结点c:stack栈顶元素，先不弹出
+	 * 1.判断h是否是c的左右孩子结点
+	 * 如果不是左孩子也不是右孩子，说明左孩子还没处理，stack推入左孩子
+	 * 如果不是右孩子，说明右孩子还没处理，stack推入右孩子
+	 * 如果上述都不满足，说明左右孩子没有或处理过，推出c,并打印，令h=c
 	 * @param root
 	 */
-	private void postOrderTraverse2(TreeNode root) {
-		TreeNode q = null;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        while(root!=null)
-        {    
-            while(root.left!=null)            //先左子树入栈,注意:这里最左节点（叶子）没有入栈，后面才入栈
-            {
-                stack.push(root);
-                root = root.left;
-            }
-            while(root.right==null || root.right ==q )
-            {            
-                System.out.print(root.val);   //当前节点无右孩子或者右孩子已经输出
-                q = root;                      //用来记录上一个节点
-                if(stack.empty())
-                    return ;               //栈为空时，就结束程序
-                root = stack.pop();           //节点出栈
-            }        
-            stack.push(root);           //！1、叶子节点入栈，指向的r.child是null 2、处理右孩子
-            root = root.right;
-        }
+	private static void postOrderTraverse2(TreeNode h) {
+		if(h==null)return;
+		Stack<TreeNode> stack=new Stack<>();
+		TreeNode c=null;
+		stack.push(h);
+		while(!stack.isEmpty()) {
+			c=stack.peek();
+			if(c.left!=null&&h!=c.left&&h!=c.right)
+				stack.push(c.left);
+			else if(c.right!=null&&h!=c.right)
+				stack.push(c.right);
+			else {
+				System.out.print(stack.pop().val+",");h=c;
+			}
+		}        
+	}
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(10);
+		TreeNode root1 = new TreeNode(5);
+		TreeNode root2 = new TreeNode(12);
+		TreeNode root3 = new TreeNode(4);
+		TreeNode root4 = new TreeNode(7);
+		root.left = root1;
+		root.right = root2;
+		root1.left = root3;
+		root1.right = root4;
+
+		postOrderTraverse2(root);
 	}
 
 }
