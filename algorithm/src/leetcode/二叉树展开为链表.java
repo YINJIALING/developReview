@@ -54,28 +54,6 @@ public class 二叉树展开为链表 {
 	public static void flatten2(TreeNode root) {
 		flatten2Core(root,null);
 	}
-	/**
-	 * if(root == null){
-            return;
-        }
-        flatten(root.left);
-        flatten(root.right);
-        if(root.left == null && root.right == null){
-            return;
-        }
-        if(root.left!=null && root.right != null){//左右子树都不为空
-            TreeNode left = root.left;
-            while(left.right !=null){
-                left = left.right;  //将左子树遍历到最后一个子叶
-            }
-            left.right = root.right; //将右子树放到左子树的末尾
-            root.right = root.left; //将左子树放到右子树
-            root.left = null;
-        }else if(root.left!=null){//左子树不为空，右子树为空
-            root.right = root.left; //将左子树放到右子树
-            root.left = null;   //左子树变为null
-        }
-	 */
 
 	/**
 	 * 

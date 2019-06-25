@@ -2,6 +2,7 @@ package 剑指offer2;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 
 import common.TreeNode;
 
@@ -20,8 +21,35 @@ public class 从上往下打印二叉树 {
 		node1.left = node3;
 		node1.right = node4;
 		node2.left = node5;
-		node2.right = node6;
+//		node2.right = node6;
 		PrintFromTopToBottom(node);
+	}
+
+	private static void PrintFromTopToBottom(TreeNode node) {
+		if(node==null)return ;
+		Queue<TreeNode> 	queue=new LinkedList<>();
+		queue.add(node);
+		int nextBePrint=0,toBePrint=1;
+		while(!queue.isEmpty()) {
+			node=queue.poll();
+			toBePrint--;
+			
+			if(node.left!=null) {
+				queue.add(node.left);
+				nextBePrint++;
+			}
+			if(node.right!=null) {
+				queue.add(node.right);
+				nextBePrint++;
+			}
+			System.out.print(node.val+",");
+			if(toBePrint==0) {
+				System.out.println();
+				toBePrint=nextBePrint;
+				nextBePrint=0;
+			}
+		}
+		
 	}
 
 	/**
@@ -30,23 +58,38 @@ public class 从上往下打印二叉树 {
 	 * @param root
 	 * @return
 	 */
-	public static ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
-		ArrayList<Integer> res = new ArrayList<>();
-		if (root == null)
-			return res;
-		LinkedList<TreeNode> queue = new LinkedList<>();
-		queue.add(root);
-		while (!queue.isEmpty()) {
-			TreeNode node = queue.poll();
-			if (node.left != null)
-				queue.add(node.left);
-			if (node.right != null)
-				queue.add(node.right);
-			System.out.print(node.val + ",");
-			res.add(node.val);
-
-		}
-		return res;
-	}
+//	public static ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
+//		ArrayList<Integer> res = new ArrayList<>();
+//		if (root == null)
+//			return res;
+//		LinkedList<TreeNode> queue = new LinkedList<>();
+//		queue.add(root);
+//		int level=0,nextPrinted=0,toBePrint=1,count=0;
+//		while (!queue.isEmpty()) {
+//			TreeNode node = queue.poll();toBePrint--;
+//			
+//			if (node.left != null) {
+//				queue.add(node.left);
+//				nextPrinted++;
+//			}else {
+//				count++;
+//			}
+//				
+//			if (node.right != null) {
+//				queue.add(node.right);
+//				nextPrinted++;
+//			}else
+//				count++;
+//				
+//			System.out.print(node.val + ",");
+//			if(toBePrint==0) {level++;System.out.println();toBePrint=nextPrinted;nextPrinted=0;}
+//			res.add(node.val);
+//
+//		}
+//		System.out.println(level);
+//		System.out.println(count);
+//		System.out.println(Math.pow(2, level-1)-1+count/2);
+//		return res;
+//	}
 
 }

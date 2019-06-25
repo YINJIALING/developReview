@@ -26,9 +26,6 @@ public class 快速排序 {
 	 * @return
 	 */
 	private static int partiton(int a[], int low, int high) {
-		System.out.println("--------");
-		System.out.print("start");
-		print(a);
 		int initLow=low;
 		int key = a[low];
 		while (low < high) {
@@ -41,13 +38,10 @@ public class 快速排序 {
 			if(low < high) {
 				swap(a,low,high);
 				low++;high--;
-			}
-			
-			
+			}	
 		}
 		//将基准的数字与low和high相遇时的数字交换
 		swap(a,high,initLow);
-		print(a);
 		return high;	
 	}
 

@@ -52,9 +52,9 @@ public class 反转链表 {
 		while (pNode != null) {
 			ListNode pNext=pNode.next;
 			if(pNext==null)
-				newhead=pNode;
-			pNode.next=pPrev;
-			pPrev=pNode;
+				newhead=pNode;//如果pNext== null，说明遍历到尾返回newHead,遍历结束
+			pNode.next=pPrev;//反转，把当前节点的next节点赋给前一个指针
+			pPrev=pNode;//推进1
 			pNode=pNext;
 		}
 		return newhead;
